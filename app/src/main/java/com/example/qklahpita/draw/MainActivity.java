@@ -124,9 +124,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public boolean onItemLongClick(AdapterView adapterView, View view, int i, long l) {
 
-                Log.d(TAG, "onItemLongClick: "+view);
 
-                final int pos = (int) view.getTag();
+                final int pos = i;
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                 builder.setMessage("Do you want to delete this image?")
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {

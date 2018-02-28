@@ -79,22 +79,19 @@ public class ImageUltis {
         return imageModelList;
     }
 
-    public static void deleteImage(int pos, Context context ) {
-
-        File folder = new File(Environment
-                .getExternalStorageDirectory().toString(),folderName);
+    public static void deleteImage(int pos, Context context) {
+        Log.d(TAG, "deleteImage: " + pos);
+        File folder = new File(Environment.getExternalStorageDirectory().toString(), folderName);
         File[] listImage = folder.listFiles();
         listImage[pos].delete();
 
-        Toast.makeText(context, "Deleted!", Toast.LENGTH_SHORT).show();
+        //noti
+        Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+        
 
-        MediaScannerConnection.scanFile(
-                context,
-                new String[]{listImage[pos].getAbsolutePath()},
-                null,
-                null);
 
     }
+
     public static Uri getUri(Context context){
         //create file
         try {
